@@ -22,8 +22,3 @@ deplacement((X,Y), (X2,Y)) :- X2 is X-1, accessible(X2,Y).
 deplacement((X,Y), (X,Y2)) :- Y2 is Y+1, accessible(X,Y2).
 deplacement((X,Y), (X,Y2)) :- Y2 is Y-1, accessible(X,Y2).
 
-
-% remplacer/3 : remplace un enieme element d'une liste par un autre
-remplacer( 1, Nouveau, [ Element | Reste ], [ Nouveau | Reste ] ) :- !.
-remplacer( N, Nouveau, [ Element | Reste ], [ Element | Final ] ) :-
-NP is N - 1, remplacer( NP, Nouveau, Reste, Final ).
