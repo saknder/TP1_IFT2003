@@ -50,7 +50,7 @@ resoudre(Chemin) :-
     depart(D),
     heuristique(D, H),
     a_star([(H, D, [D])], Chemin).
-afficher_labyrinthe((PX,PY)) :- % AFFICHAGE ASCII DU LABYRINTHE
+afficher_labyrinthe((PX,PY)) :- % affichage du labyrinthe
     nl, write("  1 2 3 4 5 6 7"), nl,
     forall(between(1,7,Y),
         (write(Y), write(" "),
