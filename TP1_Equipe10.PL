@@ -1,3 +1,13 @@
+%Déroulement du Jeu
+%À chaque tour, le joueur entre une commande pour se déplacer en indiquant une direction (h, b, g, d).
+%Le jeu met à jour la position du joueur et affiche l’état du labyrinthe après chaque mouvement.
+%Si le déplacement est impossible (mur ou dépasse limites), un message d’erreur s’affiche et le joueur doit entrer une nouvelle commande.
+%Le joueur ne peut pas repasser par une case déjà visitée.
+%Une fois la case d'arrivée (7,7) atteinte, le jeu est terminé.
+%Si le chemin du joueur est optimal, un message de félicitations s'affiche.
+%Sinon, la différence entre le chemin du joueur et le chemin optimal est affichée.
+
+
 % définir un labyrinthe 7x7 avec des murs
 mur(1,2).  mur(1,3).  mur(1,4).
 mur(2,6).  
@@ -107,4 +117,3 @@ comparer_chemin(Joueur) :-
         D is LJ - LO,
         format("Votre chemin a ~w déplacements en plus que le chemin optimal.\n", [D])
     ).
-
