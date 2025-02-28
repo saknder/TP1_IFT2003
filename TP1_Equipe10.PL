@@ -45,11 +45,11 @@ deplacement((X,Y), d, (X2, Y)) :- X2 is X+1, accessible(X2,Y).
 a_star([(_, (X,Y), Chemin) | _], Chemin) :- 
     arrivee((X,Y)). % une fois arrivé, on retourne le chemin tracé
 a_star([(G, (X,Y), Chemin) | Reste], Solution) :-
-    findall((NC, (XN, YN), [(XN, YN) | Chemin]),
+    findall((F, (XN, YN), [(XN, YN) | Chemin]),
         (deplacement((X,Y), _,(XN,YN)), % génèrer tous les déplacements possibles
          \+ member((XN,YN), Chemin), % éviter les cases déjà visitées
          heuristique((XN,YN), H), % calculer l’heuristique
-         NC is G + 1 + H), % mettre à jour le coût total G + H
+         F is G + 1 + H), % mettre à jour le coût total G + H
     NouveauxChemins),
     append(Reste, NouveauxChemins, ListeTriee),
     sort(ListeTriee, ListeTriee_s), % trier en se basant sur le coût estimé total
